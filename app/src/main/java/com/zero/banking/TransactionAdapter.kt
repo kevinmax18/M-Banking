@@ -1,4 +1,4 @@
-package com.example.banking
+package com.zero.banking
 
 import android.view.LayoutInflater
 import android.view.View

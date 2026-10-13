@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "496854390300",
+    "project_id": "m-banking-ea309",
+    "storage_bucket": "m-banking-ea309.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496854390300:android:1a8e8dcd76e90476c4b1d9",
+        "android_client_info": {
+          "package_name": "com.zero.banking"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEF1jBQG2v4Fmd-7C3hq2h4GMGe2N2Lyk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

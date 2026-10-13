@@ -1,4 +1,4 @@
-package com.example.banking
+package com.zero.banking
 
 data class Transaction(
     val title: String,

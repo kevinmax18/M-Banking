@@ -1,4 +1,4 @@
-package com.example.banking.ui.theme
+package com.zero.banking.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

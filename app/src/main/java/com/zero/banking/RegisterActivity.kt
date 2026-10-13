@@ -1,4 +1,4 @@
-package com.example.banking
+package com.zero.banking
 
 import android.os.Bundle
 import android.widget.TextView

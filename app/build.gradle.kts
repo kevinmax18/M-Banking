@@ -1,14 +1,15 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.example.banking"
+    namespace = "com.zero.banking"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.example.banking"
+        applicationId = "com.zero.banking"
         minSdk = 31
         targetSdk = 37
         versionCode = 1
@@ -36,6 +37,16 @@ android {
 }
 
 dependencies {
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:35.0.0"))
+    // TODO: Add the dependencies for Firebase products you want to use
+    // When using the BoM, don't specify versions in Firebase dependencies
+    // implementation("com.google.firebase:firebase-analytics")
+    // Tambahkan Auth dan Firestore
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+    // Add the dependencies for any other desired Firebase products
+    // https://firebase.google.com/docs/android/setup#available-libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.material)
