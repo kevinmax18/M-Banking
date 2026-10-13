@@ -1,0 +1,152 @@
+<resources>
+    <string name="app_name">Banking</string>
+    <string name="logo_desc">Logo Bank</string>
+    <string name="bank_title">E-Banking</string>
+    <string name="bank_subtitle">Secure &amp; Trusted Mobile Banking</string>
+    <string name="login_title">Selamat Datang Kembali</string>
+    <string name="login_subtitle">Masuk untuk melanjutkan transaksi Anda</string>
+    <string name="username_hint">Username atau Nomor Rekening</string>
+    <string name="password_hint">Kata Sandi</string>
+    <string name="btn_login">MASUK</string>
+    <string name="forgot_password">Lupa Kata Sandi?</string>
+    <string name="register_prompt">Belum punya akun? Daftar Sekarang</string>
+    <string name="register_title">Buat Akun Baru</string>
+    <string name="register_subtitle">Daftarkan diri Anda untuk layanan e-banking</string>
+    <string name="full_name_hint">Nama Lengkap</string>
+    <string name="email_hint">Alamat Email</string>
+    <string name="phone_hint">Nomor Handphone</string>
+    <string name="btn_register">DAFTAR</string>
+    <string name="login_prompt">Sudah punya akun? Masuk</string>
+
+    <string name="dashboard_hello">Halo, %1$s</string>
+    <string name="dashboard_welcome">Selamat Pagi</string>
+    <string name="home_balance_label">Total Saldo</string>
+    <string name="home_balance_toggle_desc">Toggle visibilitas saldo</string>
+    <string name="home_main_account">Rekening Utama</string>
+    <string name="home_main_menu">Menu Utama</string>
+    <string name="home_theme">Tema</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_transfer">Transfer</string>
+    <string name="menu_bill">Bayar</string>
+    <string name="menu_pay">Bayar</string>
+    <string name="menu_topup">Top Up</string>
+    <string name="menu_history">Mutasi</string>
+    <string name="menu_statement">Mutasi</string>
+    <string name="menu_qr">Scan QR</string>
+    <string name="menu_profile">Profil</string>
+
+    <string name="home_tips_title">Tips Keuangan</string>
+    <string name="home_tips_desc">Atur pengeluaran bulanan agar tetap sesuai dengan budget Anda.</string>
+    <string name="home_view_details">Lihat detail →</string>
+    <string name="recent_transaction">Transaksi Terakhir</string>
+    <string name="home_see_all">Lihat Semua</string>
+    <string name="home_income">Pemasukan</string>
+    <string name="home_expenses">Pengeluaran</string>
+    <string name="home_security_title">Keamanan Akun</string>
+    <string name="home_security_desc">Jangan bagikan PIN, password, atau kode OTP kepada siapa pun.</string>
+    <string name="home_learn_security">Pelajari keamanan →</string>
+
+    <string name="tx_1_title">Transfer ke Budi</string>
+    <string name="tx_1_date">12 Okt 2023 - 09:15</string>
+    <string name="tx_1_amount">-Rp 500.000</string>
+    <string name="tx_2_title">Gaji Bulanan</string>
+    <string name="tx_2_date">10 Okt 2023 - 08:00</string>
+    <string name="tx_2_amount">+Rp 15.000.000</string>
+
+    <string name="menu_notification">Notifikasi</string>
+    <string name="menu_support">Bantuan</string>
+    <string name="menu_language">Bahasa</string>
+    <string name="menu_logout">Keluar</string>
+    <string name="logout_confirm_title">Konfirmasi Keluar</string>
+    <string name="logout_confirm_message">Apakah Anda yakin ingin keluar dari aplikasi?</string>
+    <string name="logout_confirm_ok">Keluar</string>
+    <string name="logout_confirm_cancel">Batal</string>
+
+    <string name="title_history">Riwayat</string>
+    <string name="title_qr">Scan QR</string>
+    <string name="title_profile">Profil</string>
+    <string name="title_notification">Notifikasi</string>
+    <string name="title_support">Bantuan</string>
+    <string name="default_username">Pengguna</string>
+    <string name="profile_acc_number">Rekening **** **** 2847</string>
+    <string name="desc_transaction_type">Tipe Transaksi</string>
+    <string name="placeholder_text">Placeholder</string>
+    <string name="toast_see_all_transactions">Lihat Semua Transaksi</string>
+
+    <!-- Profile & Support -->
+    <string name="profile_account_info">Informasi Akun</string>
+    <string name="profile_security">Keamanan</string>
+    <string name="profile_notification">Notifikasi</string>
+    <string name="profile_support">Bantuan</string>
+    <string name="profile_language">Bahasa</string>
+    <string name="profile_logout">Keluar</string>
+    <string name="profile_coming_soon">Segera hadir</string>
+    <string name="profile_active_language">Bahasa Indonesia</string>
+
+    <string name="support_contact_us">Hubungi Kami</string>
+    <string name="support_phone">Telepon</string>
+    <string name="support_email">Email</string>
+    <string name="support_live_chat">Live Chat</string>
+    <string name="support_live_chat_title">Live Chat</string>
+    <string name="support_live_chat_desc">Bicara dengan agen kami</string>
+    <string name="support_faq">Pertanyaan Umum (FAQ)</string>
+    <string name="support_dummy_phone">1500888</string>
+    <string name="support_dummy_email">support@bankingapp.com</string>
+    <string name="support_live_chat_toast">Menghubungkan ke Live Chat...</string>
+
+    <string name="faq_1_q">Bagaimana cara transfer antar bank?</string>
+    <string name="faq_1_a">Pilih menu Transfer, masukkan nomor rekening tujuan, dan ikuti instruksi selanjutnya.</string>
+    <string name="faq_2_q">Apa yang harus dilakukan jika lupa PIN?</string>
+    <string name="faq_2_a">Anda dapat melakukan reset PIN melalui menu Keamanan atau hubungi call center kami.</string>
+    <string name="faq_3_q">Bagaimana cara ganti limit transaksi?</string>
+    <string name="faq_3_a">Limit transaksi dapat diatur melalui Informasi Akun bagian Pengaturan Limit.</string>
+    <string name="faq_4_q">Apakah aplikasi ini aman?</string>
+    <string name="faq_4_a">Ya, aplikasi kami menggunakan enkripsi tingkat tinggi dan sistem keamanan berlapis.</string>
+
+    <!-- History & Notifications -->
+    <string name="history_filter_all">Semua</string>
+    <string name="history_filter_income">Pemasukan</string>
+    <string name="history_filter_expense">Pengeluaran</string>
+    <string name="history_empty">Tidak ada transaksi ditemukan</string>
+    <string name="history_empty_desc">Coba ubah filter atau cari transaksi lain.</string>
+
+    <string name="notification_empty">Belum ada notifikasi</string>
+    <string name="notification_empty_desc">Notifikasi transaksi dan promo akan muncul di sini.</string>
+
+    <!-- QR Scan -->
+    <string name="qr_scan">Pindai</string>
+    <string name="qr_my_qr">QR Saya</string>
+    <string name="qr_scan_hint">Arahkan kamera ke kode QR</string>
+    <string name="qr_flash">Senter</string>
+    <string name="qr_gallery">Galeri</string>
+    <string name="qr_my_qr_label">Simulasi</string>
+    <string name="qr_share">Bagikan</string>
+    <string name="qr_save">Simpan</string>
+    <string name="qr_toast_flash">Senter dinyalakan</string>
+    <string name="qr_toast_gallery">Membuka Galeri</string>
+    <string name="qr_toast_share">Membagikan QR Code...</string>
+    <string name="qr_toast_save">QR Code disimpan ke galeri</string>
+
+    <!-- Accessibility & Content Descriptions -->
+    <string name="placeholder_qr_desc">Gambar QR Code</string>
+    <string name="ic_chevron_desc">Ikon Panah</string>
+    <string name="ic_phone_desc">Ikon Telepon</string>
+    <string name="ic_email_desc">Ikon Email</string>
+    <string name="ic_chat_desc">Ikon Chat</string>
+    <string name="ic_notification_desc">Ikon Notifikasi</string>
+    <string name="ic_flash_desc">Ikon Senter</string>
+    <string name="ic_gallery_desc">Ikon Galeri</string>
+    <string name="ic_logout_desc">Ikon Keluar</string>
+    <string name="ic_language_desc">Ikon Bahasa</string>
+
+    <string name="tx_type_income">Pemasukan</string>
+    <string name="tx_type_expense">Pengeluaran</string>
+
+    <string name="notif_promo_title">Promo Cashback 50%</string>
+    <string name="notif_promo_msg">Dapatkan cashback hingga Rp 50.000 untuk transaksi QRIS di merchant favorit Anda.</string>
+    <string name="notif_security_title">Peringatan Keamanan</string>
+    <string name="notif_security_msg">Terdeteksi login baru pada akun Anda. Jika bukan Anda, segera hubungi kami.</string>
+    <string name="notif_system_title">Pemeliharaan Sistem</string>
+    <string name="notif_system_msg">Layanan akan tidak tersedia pada pukul 00:00 - 02:00 karena pemeliharaan rutin.</string>
+</resources>

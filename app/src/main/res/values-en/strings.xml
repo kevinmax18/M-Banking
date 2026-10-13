@@ -1,0 +1,120 @@
+<resources>
+    <string name="app_name">Banking</string>
+    <string name="logo_desc">Bank Logo</string>
+    <string name="bank_title">E-Banking</string>
+    <string name="bank_subtitle">Secure &amp; Trusted Mobile Banking</string>
+    <string name="login_title">Welcome Back</string>
+    <string name="login_subtitle">Log in to continue your transactions</string>
+    <string name="username_hint">Username or Account Number</string>
+    <string name="password_hint">Password</string>
+    <string name="btn_login">LOG IN</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="register_prompt">Don\'t have an account? Sign Up Now</string>
+    <string name="register_title">Create New Account</string>
+    <string name="register_subtitle">Register yourself for e-banking services</string>
+    <string name="full_name_hint">Full Name</string>
+    <string name="email_hint">Email Address</string>
+    <string name="phone_hint">Mobile Number</string>
+    <string name="btn_register">SIGN UP</string>
+    <string name="login_prompt">Already have an account? Log In</string>
+
+    <string name="dashboard_hello">Hello, %1$s</string>
+    <string name="dashboard_welcome">Good Morning</string>
+    <string name="home_balance_label">Total Balance</string>
+    <string name="home_balance_toggle_desc">Toggle balance visibility</string>
+    <string name="home_main_account">Main Account</string>
+    <string name="home_main_menu">Main Menu</string>
+    <string name="home_theme">Theme</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_transfer">Transfer</string>
+    <string name="menu_bill">Pay</string>
+    <string name="menu_pay">Pay</string>
+    <string name="menu_topup">Top Up</string>
+    <string name="menu_history">Statement</string>
+    <string name="menu_statement">Statement</string>
+    <string name="menu_qr">Scan QR</string>
+    <string name="menu_profile">Profile</string>
+
+    <string name="home_tips_title">Financial Tips</string>
+    <string name="home_tips_desc">Set monthly expenses to stay within your budget.</string>
+    <string name="home_view_details">View details →</string>
+    <string name="recent_transaction">Recent Transactions</string>
+    <string name="home_see_all">See All</string>
+    <string name="home_income">Income</string>
+    <string name="home_expenses">Expenses</string>
+    <string name="home_security_title">Account Security</string>
+    <string name="home_security_desc">Do not share your PIN, password, or OTP code with anyone.</string>
+    <string name="home_learn_security">Learn about security →</string>
+
+    <string name="tx_1_title">Transfer to Budi</string>
+    <string name="tx_1_date">12 Oct 2023 - 09:15</string>
+    <string name="tx_1_amount">-Rp 500.000</string>
+    <string name="tx_2_title">Monthly Salary</string>
+    <string name="tx_2_date">10 Oct 2023 - 08:00</string>
+    <string name="tx_2_amount">+Rp 15.000.000</string>
+
+    <string name="menu_notification">Notifications</string>
+    <string name="menu_support">Help</string>
+    <string name="menu_language">Language</string>
+    <string name="menu_logout">Log Out</string>
+    <string name="logout_confirm_title">Confirm Log Out</string>
+    <string name="logout_confirm_message">Are you sure you want to log out of the application?</string>
+    <string name="logout_confirm_ok">Log Out</string>
+    <string name="logout_confirm_cancel">Cancel</string>
+
+    <string name="title_history">History</string>
+    <string name="title_qr">Scan QR</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_notification">Notifications</string>
+    <string name="title_support">Help</string>
+    <string name="desc_transaction_type">Transaction Type</string>
+    <string name="profile_account_info">Account Information</string>
+    <string name="profile_security">Security</string>
+    <string name="profile_notification">Notifications</string>
+    <string name="profile_support">Support</string>
+    <string name="profile_language">Language</string>
+    <string name="profile_logout">Log Out</string>
+    <string name="profile_coming_soon">Coming soon</string>
+    <string name="profile_active_language">English</string>
+    <string name="profile_acc_number">Account **** **** 2847</string>
+    <string name="default_username">User</string>
+
+    <string name="support_contact_us">Contact Us</string>
+    <string name="support_phone">Phone</string>
+    <string name="support_email">Email</string>
+    <string name="support_live_chat">Live Chat</string>
+    <string name="support_live_chat_title">Live Chat</string>
+    <string name="support_live_chat_desc">Talk to our agent</string>
+    <string name="support_faq">Frequently Asked Questions (FAQ)</string>
+    <string name="support_dummy_phone">1500888</string>
+    <string name="support_dummy_email">support@bankingapp.com</string>
+
+    <string name="faq_1_q">How to transfer between banks?</string>
+    <string name="faq_1_a">Select the Transfer menu, enter the destination account number, and follow the next instructions.</string>
+    <string name="faq_2_q">What should I do if I forget my PIN?</string>
+    <string name="faq_2_a">You can reset your PIN through the Security menu or contact our call center.</string>
+    <string name="faq_3_q">How to change transaction limit?</string>
+    <string name="faq_3_a">Transaction limits can be adjusted via Account Information in the Limit Settings section.</string>
+    <string name="faq_4_q">Is this application secure?</string>
+    <string name="faq_4_a">Yes, our application uses high-level encryption and a layered security system.</string>
+
+    <string name="history_filter_all">All</string>
+    <string name="history_filter_income">Income</string>
+    <string name="history_filter_expense">Expenses</string>
+    <string name="history_empty">No transactions found</string>
+
+    <string name="notification_empty">No notifications yet</string>
+
+    <string name="qr_scan">Scan</string>
+    <string name="qr_my_qr">My QR</string>
+    <string name="qr_scan_hint">Point the camera at the QR code</string>
+    <string name="qr_flash">Flashlight</string>
+    <string name="qr_gallery">Gallery</string>
+    <string name="qr_my_qr_label">Simulation</string>
+    <string name="qr_share">Share</string>
+    <string name="qr_save">Save</string>
+
+    <string name="placeholder_qr_desc">QR Code Image</string>
+    <string name="ic_chevron_desc">Chevron Icon</string>
+</resources>

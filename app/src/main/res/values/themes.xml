@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Banking" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="android:windowBackground">@color/app_background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="colorSecondaryContainer">@color/bottom_nav_indicator</item>
+        <item name="colorOnSecondaryContainer">@color/primary</item>
+        <item name="colorOutline">@color/outline</item>
+
+        <!-- Overflow icon color -->
+        <item name="actionOverflowButtonStyle">@style/CustomOverflowStyle</item>
+    </style>
+
+    <style name="CustomOverflowStyle" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/on_primary</item>
+    </style>
+
+    <style name="Theme.Banking" parent="Base.Theme.Banking" />
+
+    <!-- Splash Screen Theme (Android 12+) -->
+    <style name="Theme.Banking.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/primary</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_banking_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.Banking</item>
+    </style>
+</resources>

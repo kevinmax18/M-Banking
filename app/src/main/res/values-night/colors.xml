@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Semantic Role Colors (Dark Mode - Emerald Green) -->
+    <color name="app_background">#022C22</color>
+    <color name="surface">#064E3B</color>
+    <color name="surface_variant">#065F46</color>
+    <color name="text_primary">#ECFDF5</color>
+    <color name="text_secondary">#A7F3D0</color>
+    <color name="primary">#10B981</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="accent">#10B981</color>
+    <color name="income">#34D399</color>
+    <color name="expense">#F87171</color>
+    <color name="outline">#065F46</color>
+    <color name="bottom_nav_indicator">#3310B981</color>
+
+    <!-- Legacy Compatibility Mappings (Mapped to Green for Dark Mode) -->
+    <color name="primary_blue">@color/primary</color>
+    <color name="primary_blue_light">#34D399</color>
+    <color name="primary_blue_dark">#064E3B</color>
+    <color name="bg_blue">@color/app_background</color>
+    <color name="gray_light">@color/surface_variant</color>
+    <color name="gray_text">@color/text_secondary</color>
+    <color name="gray_dark">@color/text_primary</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Component backwards compatibility -->
+    <color name="nav_card_bg">@color/surface</color>
+    <color name="active_indicator">@color/bottom_nav_indicator</color>
+    <color name="card_surface">@color/surface</color>
+    <color name="dashboard_root_bg">@color/app_background</color>
+</resources>
