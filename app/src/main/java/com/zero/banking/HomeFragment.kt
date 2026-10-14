@@ -1,5 +1,6 @@
 package com.zero.banking
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +11,19 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
+import java.text.NumberFormat
+import java.util.Locale
 
 class HomeFragment : Fragment() {
 
     private var isBalanceVisible = true
+    private var currentBalance: Long = 0
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+    private var balanceListener: ListenerRegistration? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +54,23 @@ class HomeFragment : Fragment() {
         val displayName = if (username.isNullOrBlank()) getString(R.string.default_username) else username
         tvUserName.text = getString(R.string.dashboard_hello, displayName.uppercase())
 
+        // Firebase Initialization
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+
+        // Real-time Balance Listener
+        val uid = auth.currentUser?.uid
+        if (uid != null) {
+            balanceListener = db.collection("users").document(uid)
+                .addSnapshotListener { snapshot, e ->
+                    if (e != null) return@addSnapshotListener
+                    if (snapshot != null && snapshot.exists()) {
+                        currentBalance = (snapshot.get("saldo_awal") as? Number)?.toLong() ?: 0L
+                        updateBalanceDisplay(tvBalanceValue)
+                    }
+                }
+        }
+
         themeToggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -54,11 +81,7 @@ class HomeFragment : Fragment() {
 
         btnToggleBalance.setOnClickListener {
             isBalanceVisible = !isBalanceVisible
-            if (isBalanceVisible) {
-                tvBalanceValue.text = "Rp 15.750.000"
-            } else {
-                tvBalanceValue.text = "********"
-            }
+            updateBalanceDisplay(tvBalanceValue)
         }
 
         val dummyClick = View.OnClickListener { v ->
@@ -72,13 +95,31 @@ class HomeFragment : Fragment() {
             Toast.makeText(context, nameRes, Toast.LENGTH_SHORT).show()
         }
 
+        btnTopUp.setOnClickListener {
+            startActivity(Intent(requireContext(), TopUpActivity::class.java))
+        }
+
         btnTransfer.setOnClickListener(dummyClick)
         btnBill.setOnClickListener(dummyClick)
-        btnTopUp.setOnClickListener(dummyClick)
         btnHistory.setOnClickListener(dummyClick)
 
         tvSeeAll.setOnClickListener {
             Toast.makeText(context, R.string.toast_see_all_transactions, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun updateBalanceDisplay(textView: TextView) {
+        if (isBalanceVisible) {
+            val localeID = Locale("in", "ID")
+            val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
+            textView.text = formatRupiah.format(currentBalance).replace(",00", "").replace("Rp", "Rp ")
+        } else {
+            textView.text = "********"
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        balanceListener?.remove()
     }
 }
