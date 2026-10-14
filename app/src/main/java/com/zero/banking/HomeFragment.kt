@@ -2,22 +2,25 @@ package com.zero.banking
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
+import com.zero.banking.databinding.FragmentHomeBinding
 import java.text.NumberFormat
 import java.util.Locale
 
 class HomeFragment : Fragment() {
+
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
     private var isBalanceVisible = true
     private var currentBalance: Long = 0
@@ -28,50 +31,39 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    ): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val themeToggle = view.findViewById<SwitchCompat>(R.id.themeToggle)
-        val btnTransfer = view.findViewById<ImageButton>(R.id.btnTransfer)
-        val btnBill = view.findViewById<ImageButton>(R.id.btnBill)
-        val btnTopUp = view.findViewById<ImageButton>(R.id.btnTopUp)
-        val btnHistory = view.findViewById<ImageButton>(R.id.btnHistory)
-        val btnToggleBalance = view.findViewById<ImageButton>(R.id.btnToggleBalance)
-        val tvBalanceValue = view.findViewById<TextView>(R.id.tvBalanceValue)
-        val tvUserName = view.findViewById<TextView>(R.id.tvUserName)
-        val tvSeeAll = view.findViewById<TextView>(R.id.tvSeeAllTransactions)
-
         // Set status switch berdasarkan mode saat ini
         val currentMode = AppCompatDelegate.getDefaultNightMode()
-        themeToggle.isChecked = currentMode == AppCompatDelegate.MODE_NIGHT_YES
+        binding.themeToggle.isChecked = currentMode == AppCompatDelegate.MODE_NIGHT_YES
 
         // Tangkap data username dari Activity atau Arguments
         val username = arguments?.getString("ARG_USERNAME") ?: activity?.intent?.getStringExtra("EXTRA_USERNAME")
         val displayName = if (username.isNullOrBlank()) getString(R.string.default_username) else username
-        tvUserName.text = getString(R.string.dashboard_hello, displayName.uppercase())
+        binding.tvUserName.text = getString(R.string.dashboard_hello, displayName.uppercase())
 
         // Firebase Initialization
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
+        // Setup Swipe Refresh
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            refreshData()
+        }
+
         // Real-time Balance Listener
         val uid = auth.currentUser?.uid
         if (uid != null) {
-            balanceListener = db.collection("users").document(uid)
-                .addSnapshotListener { snapshot, e ->
-                    if (e != null) return@addSnapshotListener
-                    if (snapshot != null && snapshot.exists()) {
-                        currentBalance = (snapshot.get("saldo_awal") as? Number)?.toLong() ?: 0L
-                        updateBalanceDisplay(tvBalanceValue)
-                    }
-                }
+            setupBalanceListener(uid)
         }
 
-        themeToggle.setOnCheckedChangeListener { _, isChecked ->
+        binding.themeToggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {
@@ -79,9 +71,9 @@ class HomeFragment : Fragment() {
             }
         }
 
-        btnToggleBalance.setOnClickListener {
+        binding.btnToggleBalance.setOnClickListener {
             isBalanceVisible = !isBalanceVisible
-            updateBalanceDisplay(tvBalanceValue)
+            updateBalanceDisplay()
         }
 
         val dummyClick = View.OnClickListener { v ->
@@ -95,31 +87,72 @@ class HomeFragment : Fragment() {
             Toast.makeText(context, nameRes, Toast.LENGTH_SHORT).show()
         }
 
-        btnTopUp.setOnClickListener {
+        binding.btnTopUp.setOnClickListener {
             startActivity(Intent(requireContext(), TopUpActivity::class.java))
         }
 
-        btnTransfer.setOnClickListener(dummyClick)
-        btnBill.setOnClickListener(dummyClick)
-        btnHistory.setOnClickListener(dummyClick)
+        binding.btnTransfer.setOnClickListener(dummyClick)
+        binding.btnBill.setOnClickListener(dummyClick)
+        binding.btnHistory.setOnClickListener(dummyClick)
 
-        tvSeeAll.setOnClickListener {
+        binding.tvSeeAllTransactions.setOnClickListener {
             Toast.makeText(context, R.string.toast_see_all_transactions, Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun updateBalanceDisplay(textView: TextView) {
+    private fun setupBalanceListener(uid: String) {
+        balanceListener?.remove()
+        balanceListener = db.collection("users").document(uid)
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    binding.swipeRefreshLayout.isRefreshing = false
+                    return@addSnapshotListener
+                }
+                if (snapshot != null && snapshot.exists()) {
+                    currentBalance = (snapshot.get("saldo_awal") as? Number)?.toLong() ?: 0L
+                    updateBalanceDisplay()
+                }
+                binding.swipeRefreshLayout.isRefreshing = false
+            }
+    }
+
+    private fun refreshData() {
+        val uid = auth.currentUser?.uid
+        if (uid != null) {
+            // Force re-fetch by re-attaching listener or just letting the listener do its work
+            // For a "manual sync" feel, we can just re-trigger the fetch
+            db.collection("users").document(uid).get()
+                .addOnSuccessListener { snapshot ->
+                    if (snapshot.exists()) {
+                        currentBalance = (snapshot.get("saldo_awal") as? Number)?.toLong() ?: 0L
+                        updateBalanceDisplay()
+                    }
+                    binding.swipeRefreshLayout.isRefreshing = false
+                    Toast.makeText(context, "Data updated", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {
+                    binding.swipeRefreshLayout.isRefreshing = false
+                    Toast.makeText(context, "Failed to sync", Toast.LENGTH_SHORT).show()
+                }
+        } else {
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
+    }
+
+    private fun updateBalanceDisplay() {
+        if (_binding == null) return
         if (isBalanceVisible) {
             val localeID = Locale("in", "ID")
             val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
-            textView.text = formatRupiah.format(currentBalance).replace(",00", "").replace("Rp", "Rp ")
+            binding.tvBalanceValue.text = formatRupiah.format(currentBalance).replace(",00", "").replace("Rp", "Rp ")
         } else {
-            textView.text = "********"
+            binding.tvBalanceValue.text = "********"
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         balanceListener?.remove()
+        _binding = null
     }
 }

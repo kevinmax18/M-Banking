@@ -15,6 +15,7 @@
     <string name="full_name_hint">Full Name</string>
     <string name="email_hint">Email Address</string>
     <string name="phone_hint">Mobile Number</string>
+    <string name="pin_keamanan_hint">Security PIN (6 Digits)</string>
     <string name="btn_register">SIGN UP</string>
     <string name="login_prompt">Already have an account? Log In</string>
 
@@ -71,6 +72,18 @@
     <string name="desc_transaction_type">Transaction Type</string>
     <string name="profile_account_info">Account Information</string>
     <string name="profile_security">Security</string>
+    <string name="profile_change_pin">Change Security PIN</string>
+    <string name="title_update_pin">Update PIN</string>
+    <string name="update_pin_desc">Please enter your old PIN and the new PIN you want to use.</string>
+    <string name="hint_current_pin">Current PIN</string>
+    <string name="hint_new_pin">New PIN (6 Digits)</string>
+    <string name="hint_confirm_new_pin">Confirm New PIN</string>
+    <string name="btn_save_pin">SAVE CHANGES</string>
+    <string name="error_pin_empty">Field cannot be empty</string>
+    <string name="error_pin_length">PIN must be 6 digits</string>
+    <string name="error_pin_mismatch">New PIN doesn\'t match</string>
+    <string name="error_current_pin_wrong">Current PIN is incorrect</string>
+    <string name="success_pin_updated">PIN successfully updated</string>
     <string name="profile_notification">Notifications</string>
     <string name="profile_support">Support</string>
     <string name="profile_language">Language</string>

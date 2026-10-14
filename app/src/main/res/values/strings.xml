@@ -15,6 +15,7 @@
     <string name="full_name_hint">Nama Lengkap</string>
     <string name="email_hint">Alamat Email</string>
     <string name="phone_hint">Nomor Handphone</string>
+    <string name="pin_keamanan_hint">PIN Keamanan (6 Digit)</string>
     <string name="btn_register">DAFTAR</string>
     <string name="login_prompt">Sudah punya akun? Masuk</string>
 
@@ -77,6 +78,18 @@
     <!-- Profile & Support -->
     <string name="profile_account_info">Informasi Akun</string>
     <string name="profile_security">Keamanan</string>
+    <string name="profile_change_pin">Ubah PIN Keamanan</string>
+    <string name="title_update_pin">Ubah PIN</string>
+    <string name="update_pin_desc">Silakan masukkan PIN lama Anda dan PIN baru yang ingin digunakan.</string>
+    <string name="hint_current_pin">PIN Saat Ini</string>
+    <string name="hint_new_pin">PIN Baru (6 Digit)</string>
+    <string name="hint_confirm_new_pin">Konfirmasi PIN Baru</string>
+    <string name="btn_save_pin">SIMPAN PERUBAHAN</string>
+    <string name="error_pin_empty">Field tidak boleh kosong</string>
+    <string name="error_pin_length">PIN harus 6 digit</string>
+    <string name="error_pin_mismatch">PIN baru tidak cocok</string>
+    <string name="error_current_pin_wrong">PIN saat ini salah</string>
+    <string name="success_pin_updated">PIN berhasil diubah</string>
     <string name="profile_notification">Notifikasi</string>
     <string name="profile_support">Bantuan</string>
     <string name="profile_language">Bahasa</string>

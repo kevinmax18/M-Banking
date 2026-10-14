@@ -28,6 +28,7 @@ class RegisterActivity : AppCompatActivity() {
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPhone = findViewById<EditText>(R.id.etPhone)
         val etPassword = findViewById<EditText>(R.id.etPassword)
+        val etPinKeamanan = findViewById<EditText>(R.id.etPinKeamanan)
         val btnRegister = findViewById<Button>(R.id.btnRegister)
 
         btnRegister.setOnClickListener {
@@ -35,9 +36,10 @@ class RegisterActivity : AppCompatActivity() {
             val email = etEmail.text.toString().trim()
             val phone = etPhone.text.toString().trim()
             val password = etPassword.text.toString().trim()
+            val pin = etPinKeamanan.text.toString().trim()
 
-            if (validateInput(name, email, phone, password)) {
-                registerUser(name, email, phone, password)
+            if (validateInput(name, email, phone, password, pin)) {
+                registerUser(name, email, phone, password, pin)
             }
         }
 
@@ -46,7 +48,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateInput(name: String, email: String, phone: String, pass: String): Boolean {
+    private fun validateInput(name: String, email: String, phone: String, pass: String, pin: String): Boolean {
         if (name.isEmpty()) {
             showToast("Nama lengkap tidak boleh kosong")
             return false
@@ -63,15 +65,19 @@ class RegisterActivity : AppCompatActivity() {
             showToast("Password minimal 6 karakter")
             return false
         }
+        if (pin.length != 6) {
+            showToast("PIN harus 6 digit")
+            return false
+        }
         return true
     }
 
-    private fun registerUser(name: String, email: String, phone: String, pass: String) {
+    private fun registerUser(name: String, email: String, phone: String, pass: String, pin: String) {
         auth.createUserWithEmailAndPassword(email, pass)
             .addOnSuccessListener { authResult ->
                 val uid = authResult.user?.uid
                 if (uid != null) {
-                    saveUserToFirestore(uid, name, email, phone)
+                    saveUserToFirestore(uid, name, email, phone, pin)
                 }
             }
             .addOnFailureListener { e ->
@@ -83,11 +89,12 @@ class RegisterActivity : AppCompatActivity() {
             }
     }
 
-    private fun saveUserToFirestore(uid: String, name: String, email: String, phone: String) {
+    private fun saveUserToFirestore(uid: String, name: String, email: String, phone: String, pin: String) {
         val userMap = hashMapOf(
             "name" to name,
             "email" to email,
             "phone" to phone,
+            "pin_keamanan" to pin,
             "saldo_awal" to 0,
             "createdAt" to com.google.firebase.Timestamp.now()
         )

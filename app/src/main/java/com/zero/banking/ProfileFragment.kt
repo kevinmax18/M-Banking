@@ -30,6 +30,10 @@ class ProfileFragment : Fragment() {
         val username = arguments?.getString("ARG_USERNAME") ?: activity?.intent?.getStringExtra("EXTRA_USERNAME")
         tvProfileName.text = if (username.isNullOrBlank()) getString(R.string.default_username).uppercase() else username.uppercase()
 
+        view.findViewById<LinearLayout>(R.id.btnChangePin).setOnClickListener {
+            startActivity(Intent(requireContext(), UpdatePinActivity::class.java))
+        }
+
         view.findViewById<LinearLayout>(R.id.btnLanguage).setOnClickListener {
             showLanguageDialog()
         }

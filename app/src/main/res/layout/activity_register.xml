@@ -121,6 +121,23 @@
                     android:textColorHint="?android:attr/textColorSecondary"
                     app:drawableTint="?attr/colorPrimary" />
 
+                <EditText
+                    android:id="@+id/etPinKeamanan"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_input_field"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="12dp"
+                    android:hint="@string/pin_keamanan_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="numberPassword"
+                    android:maxLength="6"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textColorHint="?android:attr/textColorSecondary"
+                    app:drawableTint="?attr/colorPrimary" />
+
             </LinearLayout>
 
             <Button

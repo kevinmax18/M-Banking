@@ -159,8 +159,9 @@
 
                 <View android:layout_width="match_parent" android:layout_height="1dp" android:background="?attr/colorOutline"/>
 
-                <!-- Security -->
+                <!-- Change PIN -->
                 <LinearLayout
+                    android:id="@+id/btnChangePin"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:background="?attr/selectableItemBackground"
@@ -176,7 +177,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_history"
+                            android:src="@drawable/ic_lock"
                             app:tint="?attr/colorPrimary"/>
                     </FrameLayout>
                     <TextView
@@ -184,7 +185,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
-                        android:text="@string/profile_security"
+                        android:text="@string/profile_change_pin"
                         android:textColor="?android:attr/textColorPrimary"/>
                     <ImageView
                         android:layout_width="20dp"
