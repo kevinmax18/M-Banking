@@ -93,10 +93,12 @@ class HomeFragment : Fragment() {
 
         binding.btnTransfer.setOnClickListener(dummyClick)
         binding.btnBill.setOnClickListener(dummyClick)
-        binding.btnHistory.setOnClickListener(dummyClick)
+        binding.btnHistory.setOnClickListener {
+            (requireActivity() as? DashboardActivity)?.findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottomNavigation)?.selectedItemId = R.id.menu_history
+        }
 
         binding.tvSeeAllTransactions.setOnClickListener {
-            Toast.makeText(context, R.string.toast_see_all_transactions, Toast.LENGTH_SHORT).show()
+            (requireActivity() as? DashboardActivity)?.findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottomNavigation)?.selectedItemId = R.id.menu_history
         }
     }
 

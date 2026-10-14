@@ -37,6 +37,7 @@
         <activity android:name=".DashboardActivity" />
         <activity android:name=".TopUpActivity" />
         <activity android:name=".UpdatePinActivity" />
+        <activity android:name=".AccountInfoActivity" />
 
         <activity
             android:name=".MainActivity"

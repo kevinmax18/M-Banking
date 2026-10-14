@@ -15,10 +15,25 @@
         android:padding="16dp"
         android:gravity="center_vertical">
 
+        <FrameLayout
+            android:id="@+id/ivTransactionIconContainer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_circle_surface_variant">
+            <ImageView
+                android:id="@+id/ivTransactionIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_history"
+                app:tint="?attr/colorPrimary"/>
+        </FrameLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginStart="16dp"
             android:orientation="vertical">
 
             <TextView

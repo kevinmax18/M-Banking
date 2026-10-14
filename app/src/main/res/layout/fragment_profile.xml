@@ -45,12 +45,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="KEVIN TAN"
+                    android:text="-"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvProfileAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -76,6 +77,7 @@
 
                 <!-- Account Info -->
                 <LinearLayout
+                    android:id="@+id/btnAccountInfo"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:background="?attr/selectableItemBackground"
@@ -83,6 +85,7 @@
                     android:focusable="true"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="16dp">
+
                     <FrameLayout
                         android:layout_width="40dp"
                         android:layout_height="40dp"
@@ -100,6 +103,7 @@
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
                         android:text="@string/profile_account_info"
+                        android:textStyle="bold"
                         android:textColor="?android:attr/textColorPrimary"/>
                     <ImageView
                         android:layout_width="20dp"

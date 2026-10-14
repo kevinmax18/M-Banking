@@ -116,9 +116,22 @@ class TopUpActivity : AppCompatActivity() {
             return
         }
 
+        val batch = db.batch()
         val userRef = db.collection("users").document(user.uid)
+        val txRef = db.collection("transactions").document()
 
-        userRef.update("saldo_awal", FieldValue.increment(nominal))
+        batch.update(userRef, "saldo_awal", FieldValue.increment(nominal))
+        
+        val transactionData = hashMapOf(
+            "uid" to user.uid,
+            "title" to "Top Up Saldo",
+            "amount" to nominal,
+            "type" to "IN",
+            "timestamp" to FieldValue.serverTimestamp()
+        )
+        batch.set(txRef, transactionData)
+
+        batch.commit()
             .addOnSuccessListener {
                 if (!isFinishing) {
                     showSuccessDialog(nominal)
